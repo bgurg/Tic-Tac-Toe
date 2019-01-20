@@ -1,7 +1,6 @@
 import functions as f
 
 f.screen_clear()
-#screen_clear()
 print('Welcome to Tic Tac Toe!\n')
 
 replay = 'Y'

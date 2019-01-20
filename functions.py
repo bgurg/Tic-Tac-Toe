@@ -2,8 +2,7 @@ import os
 
 def screen_clear():
     '''
-    Just scrolls existing text off the screen so that user only sees
-    current text.
+    Clear screen using either cls for Windows or clear for Linux
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
     return
@@ -19,9 +18,7 @@ def player_setup():
              player names in list determines who plays first
              (e.g. in ["Player 2","X","Player 1","O"], "Player 2" would
              play first and use the "X" mark)
-
     '''
-
     import random
 
     players = ['Player 1', 'Player 2']
@@ -49,7 +46,6 @@ def display_board(board):
     INPUTS: board = list of values on board (e.g. ['X','O',' ','X',...])
     OUTPUTS: none
     '''
-
     screen_clear()
     indent = ' '*20
 
@@ -73,7 +69,6 @@ def win_check(board, mark):
     OUTPUTS:
         - whether mark has won the game (boolean)
     '''
-
     win_positions = [board[7]+board[8]+board[9],
                      board[4]+board[5]+board[6],
                      board[1]+board[2]+board[3],
@@ -102,7 +97,6 @@ def get_move(board, name, mark):
     2. Verify that cell is available (i.e. contains ' ')
     3. Update selected cell if available
     '''
-
     cell = input(f"[{name}] place an '{mark}' in cell (1-9): ")
 
     while True:
@@ -133,7 +127,6 @@ def is_final_move(board, name, mark):
     OUTPUT:
         - whether the game continues (boolean)
     '''
-
     # check to see if this move won the game
     if win_check(board, mark):
         print(f'{name} wins!')
@@ -157,7 +150,6 @@ def get_replay_response():
     OUTPUTS:
         - char entered by the user ('Y' or 'N')
     '''
-
     replay = ''
 
     while replay not in ['y','Y','n','N']:
